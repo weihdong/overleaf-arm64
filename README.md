@@ -1,71 +1,31 @@
-
-# Overleaf Community Edition (Native ARM64) 🚀
-
- **English** |  **中文**
-
-> **A native, fast, zero-config Overleaf (ShareLaTeX) image for Apple Silicon & Raspberry Pi.** > **专为 Apple Silicon (M系列芯片) 和树莓派打造的原生、高速、零配置 Overleaf 镜像。**
+# Overleaf Community Edition (Native ARM64)
 
 🐳 **Docker Image:** `weihaodong222/overleaf-arm`
 
 ---
-
-## ✨ Features / 特性
-
-- 🔥 **Native ARM64**: Runs natively on M1/M2/M3/M4 & Pi 4/5. No Rosetta emulation.  
-  **原生极速**：彻底告别 Rosetta 转译，满血运行。
-- 📦 **Zero Config**: MongoDB & Redis are pre-configured in `docker-compose.yml`.  
-  **零配置启动**：数据库已预置，下载即用，无需烧脑。
-- 📚 **Full TeXLive**: Comes with a complete TeXLive installation (~4GB).  
-  **完整环境**：内置完整版 TeXLive，宏包一个不少。
-
----
-
-## 🚀 Quick Start / 快速开始
-
-### 1. Download / 下载配置
-Download the `docker-compose.yml` file from this repository.  
-下载本仓库中的 `docker-compose.yml` 文件。
-
-### 2. Run / 启动
-Open terminal in the folder and run:  
-在当前目录打开终端并运行：
-
+## ⚡️ Quick Start / 极速开始
+### 1. Download / 下载
+**Download** the `docker-compose.yml` file from this repository.
+下载本仓库中的 `docker-compose.yml` 文件到任意文件夹。
+### 2. Run / 运行
+Open your terminal in that folder and run:
+在文件夹中打开终端，运行以下命令：
 ```bash
 docker-compose up -d
 ````
-
-### 3. Initialize / 初始化
-
-Wait **30-60 seconds** for first boot. Then open:
-
-首次启动需等待 **30-60秒**。然后访问：
-
+### 3. Done / 完成
+Wait **30 seconds**. Open your browser:
+等待约 **30秒** 让数据库初始化。然后访问：
 👉 **http://localhost:8081/launchpad**
-
-Create your first admin account.
-
-创建您的第一个管理员账户。
+Create your admin account and enjoy!
+创建管理员账号，开始使用！
 
 ---
+### 💡 Notes / 说明
 
-## ⚙️ Configuration / 进阶配置
-
-### Email / 邮件服务
-
-Edit `docker-compose.yml` and uncomment the `SMTP` section to enable "Forgot Password" emails.
-
-编辑 `docker-compose.yml`，取消 `SMTP` 部分的注释即可启用“忘记密码”邮件功能。
-
-### External Access / 外网访问
-
-Uncomment the `tunnel` service in `docker-compose.yml` and add your Cloudflare Tunnel Token.
-
-取消注释 `tunnel` 服务并填入 Cloudflare Token，即可实现安全的外网访问。
-
----
-
-## ❤️ Credits
-
-Based on the official [Overleaf Community Edition](https://github.com/overleaf/overleaf). Built to solve the lack of official ARM64 support.
-
-基于 Overleaf 官方社区版构建，旨在解决官方缺乏 ARM64 镜像的痛点。
+- **Database Included**: MongoDB & Redis are auto-configured. No manual setup needed.
+    **自带数据库**：已内置 Mongo 和 Redis，无需任何手动配置。
+    
+- **Email (Optional)**: Uncomment SMTP settings in `docker-compose.yml` if you need password reset.
+    **邮件功能(可选)**：如需“找回密码”功能，请取消 YML 文件中 SMTP 部分的注释。
+    

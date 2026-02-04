@@ -1,0 +1,66 @@
+version: '2.2'
+
+services:
+  sharelatex:
+    # Image from Docker Hub (Native ARM64)
+    # 你的 Docker Hub 镜像 (原生 ARM64)
+    image: weihaodong222/overleaf-arm:latest
+    container_name: sharelatex
+    restart: always
+    depends_on:
+      - mongo
+      - redis
+    ports:
+      - "8081:80"
+    volumes:
+      # Persist data to current directory / 数据持久化到当前目录
+      - ./overleaf_data:/var/lib/overleaf
+    environment:
+      # --- Basic Config / 基础配置 ---
+      OVERLEAF_APP_NAME: "Overleaf CE (ARM64)"
+      
+      # --- Database Auto-Connect / 数据库自动连接 ---
+      # No need to change IP, it uses service names.
+      # 无需修改 IP，直接使用服务名称连接。
+      OVERLEAF_MONGO_URL: mongodb://mongo/sharelatex
+      OVERLEAF_REDIS_HOST: redis
+      
+      # --- Features / 功能开关 ---
+      ENABLED_LINKED_FILE_TYPES: 'project_file,project_output_file'
+      
+      # --- Email Settings (Optional) / 邮件设置 (可选) ---
+      # Uncomment to enable email sending.
+      # 取消注释以启用邮件发送功能。
+      # OVERLEAF_EMAIL_SMTP_HOST: 'smtp.example.com'
+      # OVERLEAF_EMAIL_SMTP_USER: 'your_email@example.com'
+      # OVERLEAF_EMAIL_SMTP_PASS: 'your_password'
+      # OVERLEAF_EMAIL_SMTP_PORT: '465'
+      # OVERLEAF_EMAIL_SMTP_SECURE: 'true'
+
+  # MongoDB: Using 6.0 for max compatibility or 8.0
+  # MongoDB: 使用 6.0 版本以保证最大兼容性或使用8.0
+  mongo:
+    image: mongo:6.0
+    container_name: mongo
+    restart: always
+    volumes:
+      - ./mongo_data:/data/db
+
+  # Redis
+  redis:
+    image: redis:6.0
+    container_name: redis
+    restart: always
+    volumes:
+      - ./redis_data:/data
+
+  # --- Cloudflare Tunnel (Optional) / Cloudflare 隧道 (可选) ---
+  # Uncomment to expose to internet securely.
+  # 取消注释以安全地暴露到公网。
+  # tunnel:
+  #   image: cloudflare/cloudflared:latest
+  #   container_name: cloudflared-tunnel
+  #   restart: always
+  #   command: tunnel run
+  #   environment:
+  #     - TUNNEL_TOKEN=YOUR_TOKEN_HERE

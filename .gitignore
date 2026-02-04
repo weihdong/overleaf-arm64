@@ -1,0 +1,20 @@
+# --- System Files ---
+.DS_Store
+Thumbs.db
+
+# --- Docker Data Directories ---
+overleaf_data/
+mongo_data/
+redis_data/
+
+# --- IDE Settings ---
+.idea/
+.vscode/
+*.swp
+
+# --- Logs ---
+*.log
+npm-debug.log*
+
+# --- Environment Secrets ---
+.env

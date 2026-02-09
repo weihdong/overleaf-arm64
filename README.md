@@ -3,26 +3,38 @@
 🐳 **Docker Image:** `weihaodong222/overleaf-arm`
 
 ---
-## ⚡️ Quick Start / 极速开始
-### 1. Download / 下载
-**Download** the `docker-compose.yml` file from this repository.
+### ⚡️ Quick Start / 极速开始
 
-下载本仓库中的 `docker-compose.yml` 文件到任意文件夹。
-### 2. Run / 运行
-Open your terminal in that folder and run:
+#### 1. Clone / 克隆
 
-在文件夹中打开终端，运行以下命令：
-```bash
+Open your terminal and clone the repository: 打开终端，克隆本项目代码并进入目录：
+
+Bash
+
+```
+git clone https://github.com/weihaodong222/overleaf-deploy.git
+cd overleaf-deploy
+```
+
+_(注意：请将 `weihaodong222/overleaf-deploy` 替换为你实际的仓库地址)_
+
+#### 2. Run / 运行
+
+Start the service with one command: 运行以下命令一键启动：
+
+Bash
+
+```
 docker-compose up -d
-````
-### 3. Done / 完成
-Wait **30 seconds**. Open your browser:
+```
 
-等待约 **30秒** 让数据库初始化。然后访问：
+#### 3. Done / 完成
+
+Wait **30 seconds** for the database to initialize. Then visit: 等待约 **30秒** 让数据库初始化。然后访问：
+
 👉 **http://localhost:8081/launchpad**
-Create your admin account and enjoy!
 
-创建管理员账号，开始使用！
+Create your admin account and enjoy! 创建管理员账号，开始使用！
 
 ---
 ### 💡 Notes / 说明

@@ -12,11 +12,10 @@ Open your terminal and clone the repository: 打开终端，克隆本项目代�
 Bash
 
 ```
-git clone https://github.com/weihaodong222/overleaf-deploy.git
-cd overleaf-deploy
+git clone https://github.com/weihdong/overleaf-arm64.git
+cd overleaf-arm64
 ```
 
-_(注意：请将 `weihaodong222/overleaf-deploy` 替换为你实际的仓库地址)_
 
 #### 2. Run / 运行
 

@@ -5,6 +5,17 @@
 ---
 ### ⚡️ Quick Start / 极速开始
 
+> **Prerequisites / 前置条件** Use this command to check if Docker is installed: 运行此命令检查是否已安装 Docker： `docker --version` _If installed, skip Step 0. (如果已安装，请跳过第 0 步)_
+
+#### 0. Install Docker / 安装环境
+
+If the server is new, run this official script to install Docker & Docker Compose: 如果是新服务器，请运行官方脚本一键安装 Docker 和 Docker Compose：
+
+Bash
+
+```
+curl -fsSL https://get.docker.com | bash
+```
 #### 1. Clone / 克隆
 
 Open your terminal and clone the repository: 打开终端，克隆本项目代码并进入目录：
